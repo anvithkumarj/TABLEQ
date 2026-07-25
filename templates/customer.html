@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableIQ</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Avoid inline styles for hiding the order status card */
+        .order-status-card.hidden { display: none; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">TQ</div>
+            <div class="logo-text">
+                <h2>TableIQ</h2>
+                <p>Order Smarter. Dine Faster.</p>
+            </div>
+        </div>
+
+        <ul>
+            <li>Home</li>
+            <li>Menu</li>
+            <li>Offers</li>
+            <li id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Order Smarter. Dine Faster</h1>
+        <p>Order your favorite meals without waiting for a waiter.</p>
+        <button id="start-ordering">Start Ordering</button>
+    </section>
+
+    <!-- Search -->
+    <section class="search">
+        <input type="text" id="search-box" placeholder="Search your favorite food...">
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="categories-section">
+            <h2 class="section-title">Categories</h2>
+            <div class="categories-list">
+                <button class="category-btn active" data-category="All"><span class="icon">⭐</span><span>All</span></button>
+                <button class="category-btn" data-category="Pizza"><span class="icon">🍕</span><span>Pizza</span></button>
+                <button class="category-btn" data-category="Burger"><span class="icon">🍔</span><span>Burger</span></button>
+                <button class="category-btn" data-category="Drinks"><span class="icon">🥤</span><span>Drinks</span></button>
+                <button class="category-btn" data-category="Dessert"><span class="icon">🍰</span><span>Dessert</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Foods -->
+    <section class="foods">
+        <h2>Today's Special</h2>
+        <div class="food-container">
+            {% for item in menu %}
+            <div class="food-card" data-category="{{ item.category }}">
+                <div class="offer-badge">
+                    {% if item.offer > 0 %}
+                        🔥 Save ₹{{ item.offer }}
+                    {% else %}
+                        ⭐ Best Seller
+                    {% endif %}
+                </div>
+
+                <img src="{{ item.image }}" alt="{{ item.name }}">
+                <div class="food-info">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <div class="price-box">
+                        <span class="old-price">₹{{ item.original_price }}</span>
+                        <span class="new-price">₹{{ item.price }}</span>
+                    </div>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-cart"
+                        data-id="{{ item.id }}"
+                        data-name="{{ item.name }}"
+                        data-price="{{ item.price }}"
+                        data-original="{{ item.original_price }}"
+                        data-offer="{{ item.offer }}">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+<div id="cart-panel" class="cart-panel">
+  <div class="cart-header">
+    <h2>🛒 Your Cart</h2>
+    <button id="close-cart">✖</button>
+  </div>
+
+  <!-- Cart Items -->
+  <div id="cart-items" class="cart-items">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <!-- Cart Summary -->
+  <div class="cart-summary">
+    <p><strong>Items:</strong> <span id="cart-count">0</span></p>
+    <p><strong>Total:</strong> ₹<span id="cart-total">0</span></p>
+    <p class="saved"><strong>You Saved:</strong> ₹<span id="cart-saved">0</span></p>
+  </div>
+
+  <!-- Payment Options -->
+  <div class="payment-options">
+    <label><input type="radio" name="payment" value="Online" checked> 💳 Pay Online</label>
+    <label><input type="radio" name="payment" value="Cash"> 💵 Cash at Counter</label>
+  </div>
+
+  <!-- Table Number -->
+  <label class="table-label">Table Number</label>
+  <input type="number" id="table-number" placeholder="Enter Table No">
+
+  <!-- Place Order -->
+  <button class="checkout-btn" id="place-order">✅ Place Order</button>
+</div>
+
+<!-- Customer Order Status -->
+<div id="order-status-card" class="order-status-card hidden">
+  <h2>📦 Your Order</h2>
+  <p><strong>Table:</strong> <span id="status-table">-</span></p>
+  <p><strong>Status:</strong> <span id="status-text">Preparing</span></p>
+  <p><strong>Estimated Time:</strong> <span id="status-time">Waiting...</span></p>
+  <p><strong>Payment:</strong> <span id="status-payment">-</span></p>
+  <p><strong>Total:</strong> ₹<span id="status-total">0</span></p>
+  <button id="reset-order" class="reset-btn">🔄 New Customer / Reset</button>
+</div>
+
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#121212;
+    color:white;
+}
+
+/* Navigation */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#1b1b1b;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    background:#FFC107;
+    color:#121212;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(255,193,7,0.35);
+}
+
+.logo-text h2{
+    color:white;
+    margin:0;
+    font-size:26px;
+}
+
+.logo-text p{
+    color:#FFC107;
+    font-size:12px;
+    margin:2px 0 0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav ul li{
+    cursor:pointer;
+    transition:.3s;
+}
+
+nav ul li:hover{
+    color:#FFC107;
+}
+
+/* Hero */
+
+.hero{
+    text-align:center;
+    padding:90px 20px;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#cccccc;
+    margin-bottom:30px;
+}
+
+.hero button{
+    background:#FFC107;
+    color:black;
+    border:none;
+    padding:15px 35px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.05);
+}
+
+/* Search */
+
+.search{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+
+.search input{
+    width:60%;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+}
+
+/* Categories */
+
+.categories{
+    padding:40px;
+}
+
+.categories h2{
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.category-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.category-card{
+    width:140px;
+    height:120px;
+    background:#1E1E1E;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.category-card:hover{
+    background:#FFC107;
+    color:black;
+    transform:translateY(-8px);
+}
+
+/* Food Cards */
+
+.foods{
+    padding:40px;
+}
+
+.foods h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.food-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.food-card{
+    background:#1E1E1E;
+    width:300px;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-10px);
+}
+
+.food-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.food-card h3,
+.food-card p,
+.food-card h4{
+    margin:15px;
+}
+
+.food-card button{
+    width:90%;
+    margin:15px;
+    padding:12px;
+    border:none;
+    background:#FFC107;
+    color:black;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+/* Cart Drawer */
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: #1E1E1E;
+  color: white;
+  transition: .4s;
+  padding: 20px;
+  box-shadow: -5px 0 15px rgba(0,0,0,.4);
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.cart-panel.active {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cart-items {
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #444;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.cart-summary p {
+  margin: 6px 0;
+}
+
+.cart-summary .saved {
+  color: #4caf50;
+}
+
+.payment-options {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-options label {
+  background: #2b2b2b;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background: #FFC107;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px;
+  background: #e53935;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* ===========================
+   PREMIUM CATEGORY SECTION
+=========================== */
+
+.categories-section{
+
+    margin-top:40px;
+
+    text-align:center;
+
+}
+
+.section-title{
+
+    color:white;
+
+    margin-bottom:25px;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.categories{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.category-btn{
+
+    width:120px;
+
+    height:120px;
+
+    background:#2b2b2b;
+
+    border:none;
+
+    border-radius:22px;
+
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.35s;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+}
+
+.category-btn .icon{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.category-btn:hover{
+
+    transform:translateY(-8px);
+
+    background:#353535;
+
+    box-shadow:0 0 25px rgba(255,193,7,.55);
+
+}
+
+.category-btn.active{
+
+    background:#FFC107;
+
+    color:black;
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 35px rgba(255,193,7,.7);
+
+}
+
+.categories-list {
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+
+
+/* ==========================
+PREMIUM FOOD CARDS
+========================== */
+
+.food-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:35px;
+
+flex-wrap:wrap;
+
+margin-top:40px;
+
+}
+
+.food-card{
+
+width:290px;
+
+background:#252525;
+
+border-radius:24px;
+
+overflow:hidden;
+
+position:relative;
+
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.food-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 0 35px rgba(255,193,7,.35);
+
+}
+
+.offer-badge{
+
+position:absolute;
+
+top:18px;
+
+left:18px;
+
+background:#FFC107;
+
+color:black;
+
+padding:7px 14px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+font-size:14px;
+
+}
+
+.food-card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+}
+
+.food-info{
+
+padding:22px;
+
+}
+
+.food-info h3{
+
+color:white;
+
+font-size:24px;
+
+margin-bottom:8px;
+
+}
+
+.food-info p{
+
+color:#bdbdbd;
+
+margin-bottom:18px;
+
+}
+
+.price-box{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:18px;
+
+}
+
+.old-price{
+
+text-decoration:line-through;
+
+color:#888;
+
+font-size:18px;
+
+}
+
+.new-price{
+
+color:#FFC107;
+
+font-size:26px;
+
+font-weight:bold;
+
+}
+
+.rating{
+
+margin-bottom:20px;
+
+font-size:18px;
+
+}
+
+.add-cart{
+
+width:100%;
+
+padding:14px;
+
+background:#FFC107;
+
+border:none;
+
+border-radius:14px;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.add-cart:hover{
+
+background:white;
+
+transform:scale(1.04);
+
+}
+
+.table-label{
+
+display:block;
+
+margin-top:20px;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+color:white;
+
+}
+
+#table-number{
+
+width:100%;
+
+padding:12px;
+
+border:none;
+
+border-radius:12px;
+
+background:#333;
+
+color:white;
+
+font-size:16px;
+
+margin-bottom:20px;
+
+}
+
+.estimate{
+
+background:#2b2b2b;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+.estimate strong{
+
+display:block;
+
+margin-top:8px;
+
+font-size:22px;
+
+color:#FFC107;
+
+}
+
+.counter-btn{
+
+width:100%;
+
+padding:14px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:14px;
+
+background:#444;
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.counter-btn:hover{
+
+background:#666;
+
+}
+
+/* ===========================
+   Customer Order Status
+=========================== */
+
+.order-status-card{
+
+    display:none;
+
+    background:#1b1b1b;
+
+    color:white;
+
+    border:2px solid #FFC107;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin:25px;
+
+    box-shadow:0 8px 25px rgba(255,193,7,.25);
+
+}
+
+.order-status-card h2{
+
+    color:#FFC107;
+
+    margin-bottom:15px;
+
+}
+
+.order-status-card p{
+
+    margin:10px 0;
+
+    font-size:16px;
+
+}

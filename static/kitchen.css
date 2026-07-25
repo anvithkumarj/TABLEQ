@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: #111;
+  color: white;
+}
+
+header {
+  background: #1d1d1d;
+  padding: 20px;
+  text-align: center;
+}
+
+#orders-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+.order-card {
+  background: #222;
+  border-radius: 15px;
+  padding: 20px;
+  border-left: 6px solid orange;
+}
+
+.order-card h2 {
+  color: #ffc107;
+}
+
+.order-card ul {
+  padding-left: 20px;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ffc107;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffdb4d;
+}
+
+.empty {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 100px;
+  opacity: 0.6;
+}
+
+/* Completed Orders Section */
+.completed-section {
+  margin: 30px;
+  padding: 20px;
+  background: #1d1d1d;
+  border-radius: 12px;
+}
+
+.completed-section h2 {
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+
+.done-card {
+  background: #2b2b2b;
+  padding: 12px;
+  margin-top: 10px;
+  border-left: 5px solid limegreen;
+  border-radius: 8px;
+  font-weight: bold;
+}

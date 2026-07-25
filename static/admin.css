@@ -1,0 +1,256 @@
+/* =======================================
+   TABLEQ ADMIN PANEL
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#111827;
+    color:white;
+    min-height:100vh;
+
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.topbar{
+
+    background:#1F2937;
+    text-align:center;
+    padding:25px;
+
+    border-bottom:3px solid #FFC107;
+
+}
+
+.topbar h1{
+
+    font-size:34px;
+
+}
+
+.topbar p{
+
+    color:#bdbdbd;
+    margin-top:8px;
+
+}
+
+/* ===========================
+Container
+=========================== */
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+/* ===========================
+Cards
+=========================== */
+
+.card{
+
+    background:#1F2937;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+
+}
+
+.card h2{
+
+    color:#FFC107;
+
+    margin-bottom:25px;
+
+}
+
+/* ===========================
+Form
+=========================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#374151;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.form-grid textarea{
+
+    resize:none;
+
+    height:100px;
+
+    grid-column:1/3;
+
+}
+
+/* ===========================
+Buttons
+=========================== */
+
+button{
+
+    margin-top:25px;
+
+    background:#FFC107;
+
+    color:black;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ===========================
+Menu Cards
+=========================== */
+
+.menu-card{
+
+    background:#374151;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-top:18px;
+
+}
+
+.menu-card img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+}
+
+.menu-card h3{
+
+    color:#FFC107;
+
+}
+
+.menu-card p{
+
+    margin:6px 0;
+
+}
+
+.menu-actions{
+
+    margin-top:15px;
+
+}
+
+.edit-btn{
+
+    background:#2196F3;
+
+    color:white;
+
+    margin-right:10px;
+
+}
+
+.delete-btn{
+
+    background:#E53935;
+
+    color:white;
+
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .form-grid textarea{
+
+        grid-column:1;
+
+    }
+
+    .topbar h1{
+
+        font-size:26px;
+
+    }
+
+}
