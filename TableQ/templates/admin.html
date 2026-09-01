@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TableQ Admin</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='admin.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <h1>👨‍💼 TableQ Admin Dashboard</h1>
+
+    <p>Restaurant Management System</p>
+
+</header>
+
+<div class="container">
+
+    <!-- Add Food -->
+
+    <section class="card">
+
+        <h2>➕ Add New Food</h2>
+
+        <div class="form-grid">
+
+            <input
+                id="food-name"
+                type="text"
+                placeholder="Food Name">
+
+            <label for="food-category" class="sr-only">Food Category</label>
+            <select id="food-category" name="food-category">
+
+                <option>Pizza</option>
+                <option>Burger</option>
+                <option>Drinks</option>
+                <option>Dessert</option>
+                <option>Biryani</option>
+
+            </select>
+
+            <input
+                id="food-original"
+                type="number"
+                placeholder="Original Price">
+
+            <input
+                id="food-offer"
+                type="number"
+                placeholder="Offer">
+
+            <input
+                id="food-price"
+                type="number"
+                placeholder="Final Price">
+
+            <input
+                id="food-time"
+                type="number"
+                placeholder="Preparation Time (Minutes)">
+
+            <textarea
+                id="food-description"
+                placeholder="Description"></textarea>
+
+            <input
+                id="food-image"
+                type="text"
+                placeholder="Image URL">
+
+        </div>
+
+        <button id="add-food-btn">
+
+            ➕ Add Food
+
+        </button>
+
+    </section>
+
+    <!-- Menu -->
+
+    <section class="card">
+
+        <h2>🍽 Current Menu</h2>
+
+        <div id="menu-list">
+
+            <p>No Food Items Yet.</p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+
+</body>
+
+<!-- Sales Tracker -->
+<section class="card" id="sales-box">
+  <h2>💰 Today's Sales</h2>
+  <p>Total Orders: 0</p>
+  <p>Total Revenue: ₹0</p>
+  <button onclick="showSales()">📊 Show Sales</button>
+  <button onclick="resetSales()">🔄 Reset</button>
+</section>
+
+
+</html>
